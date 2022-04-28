@@ -1,6 +1,6 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import './index.css';
+import './index.scss';
 import { createWebHashHistory, createRouter } from 'vue-router';
 // createMemoryHistory 内存型路由 、createWebHashHistory Hash型路由、createWebHistory History型路由
 import Home from './views/Home.vue';
