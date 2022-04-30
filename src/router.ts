@@ -3,7 +3,9 @@ import { createWebHashHistory, createRouter } from 'vue-router';
 import Home from './views/Home.vue';
 import Doc from './views/Doc.vue';
 import SwitchDemo from './components/SwitchDemo.vue';
-
+import ButtonDemo from './components/ButtonDemo.vue';
+import DialogDemo from './components/DialogDemo.vue';
+import TabsDemo from './components/TabsDemo.vue';
 // 路由模式
 const history = createWebHashHistory();
 
@@ -13,7 +15,12 @@ const routes = [
   {
     path: '/doc',
     component: Doc,
-    children: [{ path: 'switch', component: SwitchDemo }]
+    children: [
+      { path: 'switch', component: SwitchDemo },
+      { path: 'button', component: ButtonDemo },
+      { path: 'dialog', component: DialogDemo },
+      { path: 'tabs', component: TabsDemo }
+    ]
     // 子路由需要在父路由组件中写 router-view 展示子路由
   }
 ];

@@ -1,7 +1,7 @@
-<template lang="">
-  <div>rin2</div>
+<template>
+  <div>Button 示例</div>
 </template>
-<script>
+<script lang="ts">
 export default {};
 </script>
 <style lang=""></style>
