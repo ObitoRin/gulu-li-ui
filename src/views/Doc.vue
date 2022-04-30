@@ -31,7 +31,7 @@ import Topnav from '../components/Topnav.vue';
 export default {
   components: { Topnav },
   setup() {
-    const menuVisible = inject<Ref<boolean>>('xxx'); // get
+    const menuVisible = inject<Ref<boolean>>('menuVisible'); // get
     return { menuVisible };
   }
 };
