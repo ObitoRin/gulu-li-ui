@@ -1,9 +1,9 @@
 <template>
   <div>
     <!-- 自动监听 value 的变化 -->
-    <Switch v-model:value="y" />
+    <Switch v-model:value="bool" />
 
-    <!-- <Switch :value="y" @update:value="y = $event" /> -->
+    <!-- <Switch :value="bool" @update:value="bool = $event" /> -->
     <!-- $event 是 emit 传的值 -->
   </div>
 </template>
@@ -13,8 +13,8 @@ import Switch from '../lib/Switch.vue';
 export default {
   components: { Switch },
   setup() {
-    const y = ref(false);
-    return { y };
+    const bool = ref(false);
+    return { bool };
   }
 };
 </script>
