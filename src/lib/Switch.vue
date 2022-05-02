@@ -5,16 +5,13 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
 export default {
   props: {
     value: Boolean
   },
   setup(props, context) {
     const toggle = () => {
-      console.log('!props.value', !props.value);
-
-      context.emit('switchToggle', !props.value);
+      context.emit('update:value', !props.value);
     };
     return { toggle };
   }

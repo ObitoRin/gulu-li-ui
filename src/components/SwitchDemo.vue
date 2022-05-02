@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Switch :value="y" @switchToggle="y = $event" />
+    <!-- 自动监听 value 的变化 -->
+    <Switch v-model:value="y" />
+
+    <!-- <Switch :value="y" @update:value="y = $event" /> -->
     <!-- $event 是 emit 传的值 -->
   </div>
 </template>
