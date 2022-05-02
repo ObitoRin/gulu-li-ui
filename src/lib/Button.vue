@@ -1,7 +1,21 @@
 <template>
-  <!-- Vue 会把传给当前组件的所有事件默认传给组件的最外层根元素(button)上，不管这个元素是什么 -->
-  <button>
-    <slot />
-    <!-- 当 Button 组件渲染时，slot 会被引用组件时的内容替换 -->
-  </button>
+  <div :size="size">
+    <button v-bind="rest">
+      <slot />
+    </button>
+  </div>
 </template>
+<script lang="ts">
+export default {
+  inheritAttrs: false,
+  setup(props, context) {
+    const { size, ...rest } = context.attrs;
+    return { size, rest };
+  }
+};
+</script>
+<style lang="scss" scoped>
+div {
+  border: 1px solid red;
+}
+</style>
