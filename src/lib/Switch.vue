@@ -1,6 +1,7 @@
 <template>
   <button
-    :class="{ checked: value, disabled }"
+    class="gulu-switch"
+    :class="{ 'gulu-checked': value, 'gulu-disabled': disabled }"
     :disabled="disabled"
     @click="toggle"
   >
@@ -23,10 +24,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.gulu-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -52,7 +53,7 @@ button {
     }
   }
 
-  &.checked {
+  &.gulu-checked {
     background: #1890ff;
 
     > span {
@@ -65,7 +66,7 @@ button {
     }
   }
 
-  &.disabled {
+  &.gulu-disabled {
     cursor: not-allowed;
   }
 }
