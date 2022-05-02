@@ -1,5 +1,9 @@
 <template>
-  <button :class="{ checked: value }" @click="toggle">
+  <button
+    :class="{ checked: value, disabled }"
+    :disabled="disabled"
+    @click="toggle"
+  >
     <span></span>
   </button>
 </template>
@@ -7,7 +11,8 @@
 <script lang="ts">
 export default {
   props: {
-    value: Boolean
+    value: Boolean,
+    disabled: Boolean
   },
   setup(props, context) {
     const toggle = () => {
@@ -58,6 +63,10 @@ button {
       width: $h2 + 4px;
       margin-left: -4px;
     }
+  }
+
+  &.disabled {
+    cursor: not-allowed;
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <!-- 自动监听 value 的变化 -->
-    <Switch v-model:value="bool" />
+    <Switch v-model:value="bool" :disabled="disabled" />
 
     <!-- <Switch :value="bool" @update:value="bool = $event" /> -->
     <!-- $event 是 emit 传的值 -->
@@ -14,7 +14,8 @@ export default {
   components: { Switch },
   setup() {
     const bool = ref(false);
-    return { bool };
+    const disabled = ref(false);
+    return { bool, disabled };
   }
 };
 </script>
