@@ -13,8 +13,18 @@
     <h1>示例2</h1>
     <div>
       <Button size="big">大大大</Button>
-      <Button size="normal">普通</Button>
+      <Button>普通</Button>
       <Button size="small">小小小</Button>
+    </div>
+    <div>
+      <Button size="big" theme="link">大大大</Button>
+      <Button theme="link">普通</Button>
+      <Button size="small" theme="link">小小小</Button>
+    </div>
+    <div>
+      <Button size="big" theme="text">大大大</Button>
+      <Button theme="text">普通</Button>
+      <Button size="small" theme="text">小小小</Button>
     </div>
   </section>
 </template>
@@ -33,7 +43,10 @@ export default {
 <style lang="scss" scoped>
 section {
   margin: 24px 0;
-  h1 {
+  > h1 {
+    margin: 12px 0;
+  }
+  > div {
     margin: 10px 0;
   }
 }
