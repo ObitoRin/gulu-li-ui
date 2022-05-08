@@ -27,6 +27,15 @@
       <Button size="small" theme="text">小小小</Button>
     </div>
   </section>
+
+  <section>
+    <h1>示例3</h1>
+    <Button>Click it</Button>
+    <Button level="primary">Click it</Button>
+    <Button level="success">Click it</Button>
+    <Button level="warning">Click it</Button>
+    <Button level="danger">Click it</Button>
+  </section>
 </template>
 <script lang="ts">
 import Button from '../lib/Button.vue';

@@ -14,14 +14,19 @@ export default {
     size: {
       type: String,
       default: 'normal'
+    },
+    level: {
+      type: String,
+      default: 'normal'
     }
   },
   setup(props) {
-    const { theme, size } = props;
+    const { theme, size, level } = props;
     const classes = computed(() => {
       return {
         [`gulu-theme-${theme}`]: theme,
-        [`gulu-size-${size}`]: size
+        [`gulu-size-${size}`]: size,
+        [`gulu-level-${level}`]: level
       };
     });
     return { classes };
@@ -34,6 +39,21 @@ $border-color: #d9d9d9;
 $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
+$red: #f56c6c;
+$green: #67c23a;
+$yellow: #e6a23c;
+
+@mixin level-color($color) {
+  background: $color;
+  border-color: $color;
+  color: white;
+  &:hover,
+  &:focus {
+    background: darken($color, 10%);
+    border-color: darken($color, 10%);
+  }
+}
+
 .gulu-button {
   box-sizing: border-box;
   height: $h;
@@ -62,6 +82,7 @@ $radius: 4px;
   &::-moz-focus-inner {
     border: 0;
   }
+
   &.gulu-theme-link {
     border-color: transparent;
     box-shadow: none;
@@ -80,6 +101,7 @@ $radius: 4px;
       background: darken(white, 5%);
     }
   }
+
   &.gulu-size-big {
     font-size: 24px;
     height: 48px;
@@ -89,6 +111,19 @@ $radius: 4px;
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
+  }
+
+  &.gulu-level-primary {
+    @include level-color($blue);
+  }
+  &.gulu-level-success {
+    @include level-color($green);
+  }
+  &.gulu-level-warning {
+    @include level-color($yellow);
+  }
+  &.gulu-level-danger {
+    @include level-color($red);
   }
 }
 </style>
