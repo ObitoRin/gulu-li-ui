@@ -1,5 +1,5 @@
 <template>
-  <button class="gulu-button" :class="classes">
+  <button class="gulu-button" :class="classes" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -18,6 +18,10 @@ export default {
     level: {
       type: String,
       default: 'normal'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props) {
@@ -42,6 +46,7 @@ $radius: 4px;
 $red: #f56c6c;
 $green: #67c23a;
 $yellow: #e6a23c;
+$grey: #909399;
 
 @mixin level-color($color) {
   background: $color;
@@ -68,6 +73,7 @@ $yellow: #e6a23c;
   border: 1px solid $border-color;
   border-radius: $radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
+  transition: background 250ms;
   & + & {
     margin-left: 8px;
   }
@@ -124,6 +130,22 @@ $yellow: #e6a23c;
   }
   &.gulu-level-danger {
     @include level-color($red);
+  }
+  &.gulu-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+  &.gulu-theme-link,
+  &.gulu-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+    }
   }
 }
 </style>

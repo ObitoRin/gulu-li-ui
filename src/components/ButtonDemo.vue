@@ -30,11 +30,18 @@
 
   <section>
     <h1>示例3</h1>
-    <Button>Click it</Button>
-    <Button level="primary">Click it</Button>
-    <Button level="success">Click it</Button>
-    <Button level="warning">Click it</Button>
-    <Button level="danger">Click it</Button>
+    <Button>默认按钮</Button>
+    <Button level="primary">主要按钮</Button>
+    <Button level="success">成功按钮</Button>
+    <Button level="warning">警告按钮</Button>
+    <Button level="danger">危险按钮</Button>
+  </section>
+
+  <section>
+    <h1>示例4</h1>
+    <Button disabled>禁用按钮</Button>
+    <Button disabled theme="link">禁用链接按钮</Button>
+    <Button disabled theme="text">禁用文字按钮</Button>
   </section>
 </template>
 <script lang="ts">
