@@ -43,16 +43,24 @@
     <Button disabled theme="link">禁用链接按钮</Button>
     <Button disabled theme="text">禁用文字按钮</Button>
   </section>
+
+  <section>
+    <h1>示例5</h1>
+    <Button loading>加载中</Button>
+    <Button :loading="loading" @click="stopLoading">点击关闭 loading</Button>
+  </section>
 </template>
 <script lang="ts">
+import { ref } from 'vue';
 import Button from '../lib/Button.vue';
 export default {
   components: { Button },
   setup() {
-    const onClick = () => {
-      console.log('hi');
+    const loading = ref(true);
+    const stopLoading = () => {
+      loading.value = false;
     };
-    return { onClick };
+    return { loading, stopLoading };
   }
 };
 </script>
