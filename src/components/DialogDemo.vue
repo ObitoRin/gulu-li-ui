@@ -1,11 +1,21 @@
 <template>
   <div>Dialog 示例</div>
-  <Dialog />
+  <Button @click="toggle">toggle</Button>
+  <Dialog v-model:visible="visible" />
 </template>
 <script lang="ts">
+import { ref } from 'vue';
+import Button from '../lib/Button.vue';
 import Dialog from '../lib/Dialog.vue';
 export default {
-  components: { Dialog }
+  components: { Dialog, Button },
+  setup() {
+    const visible = ref(false);
+    const toggle = () => {
+      visible.value = !visible.value;
+    };
+    return { visible, toggle };
+  }
 };
 </script>
 <style lang=""></style>
