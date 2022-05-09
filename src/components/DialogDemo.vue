@@ -8,8 +8,13 @@
     :ok="ok"
     :cancel="cancel"
   >
-    <div>这是一段信息</div>
-    <div>这是一段信息</div>
+    <template v-slot:title>
+      <strong>提示</strong>
+    </template>
+    <template v-slot:content>
+      <div>hi</div>
+      <div>这是一段信息</div>
+    </template>
   </Dialog>
 </template>
 <script lang="ts">
