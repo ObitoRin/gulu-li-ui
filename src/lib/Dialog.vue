@@ -4,11 +4,11 @@
     <div class="gulu-dialog-wrapper">
       <div class="gulu-dialog">
         <header>
-          标题 <span class="gulu-dialog-close" @click="close"></span>
+          {{ title }}
+          <span class="gulu-dialog-close" @click="close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot />
         </main>
         <footer>
           <Button level="primary" @click="ok">OK</Button>
@@ -30,6 +30,10 @@ export default {
     onClickOverlay: {
       type: Boolean,
       default: true
+    },
+    title: {
+      type: String,
+      default: ''
     },
     ok: {
       type: Function

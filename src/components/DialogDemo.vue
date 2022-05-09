@@ -2,11 +2,15 @@
   <div>Dialog 示例</div>
   <Button @click="toggle">toggle</Button>
   <Dialog
+    title="标题"
     v-model:visible="visible"
     :onClickOverlay="false"
     :ok="ok"
     :cancel="cancel"
-  />
+  >
+    <div>这是一段信息</div>
+    <div>这是一段信息</div>
+  </Dialog>
 </template>
 <script lang="ts">
 import { ref } from 'vue';
