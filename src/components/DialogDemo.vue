@@ -1,37 +1,36 @@
 <template>
-  <div>Dialog 示例</div>
-  <div style="position: relative; z-index: 1">
-    <Button @click="toggle">toggle</Button>
-    <Dialog
-      title="标题"
-      v-model:visible="visible"
-      :onClickOverlay="false"
-      :ok="ok"
-      :cancel="cancel"
-    >
-      <template v-slot:title>
-        <strong>提示</strong>
-      </template>
-      <template v-slot:content>
-        <div>hi</div>
-        <div>这是一段信息</div>
-      </template>
-    </Dialog>
-  </div>
-  <div
-    style="
-      position: relative;
-      z-index: 2;
-      width: 300px;
-      height: 300px;
-      background: red;
-    "
-  ></div>
+  <section>
+    <div>
+      <h2>示例1</h2>
+      <Button @click="toggle">toggle</Button>
+      <Dialog
+        title="标题"
+        v-model:visible="visible"
+        :onClickOverlay="false"
+        :ok="ok"
+        :cancel="cancel"
+      >
+        <template v-slot:title>
+          <strong>提示</strong>
+        </template>
+        <template v-slot:content>
+          <div>hi</div>
+          <div>这是一段信息</div>
+        </template>
+      </Dialog>
+    </div>
+
+    <div>
+      <h2>示例2</h2>
+      <Button @click="showDialog">openDialog</Button>
+    </div>
+  </section>
 </template>
 <script lang="ts">
 import { ref } from 'vue';
 import Button from '../lib/Button.vue';
 import Dialog from '../lib/Dialog.vue';
+import { openDialog } from '../lib/openDialog';
 export default {
   components: { Dialog, Button },
   setup() {
@@ -39,14 +38,23 @@ export default {
     const toggle = () => {
       visible.value = !visible.value;
     };
-    const ok = () => {
-      visible.value = false;
+    const ok = () => {};
+    const cancel = () => {};
+
+    const showDialog = () => {
+      openDialog({
+        title: '标题',
+        content: '内容',
+        ok() {
+          console.log('ok');
+        },
+        cancel() {
+          console.log('cancel');
+        }
+      });
     };
-    const cancel = () => {
-      visible.value = false;
-    };
-    return { visible, toggle, ok, cancel };
+
+    return { visible, toggle, ok, cancel, showDialog };
   }
 };
 </script>
-<style lang=""></style>
