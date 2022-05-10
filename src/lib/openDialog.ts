@@ -16,7 +16,7 @@ export const openDialog = (options) => {
         // props
         {
           visible: true,
-          'onUpdate:visible': (newVisible) => {
+          '`onUpdate:`visible': (newVisible) => {
             if (newVisible === false) {
               close();
             }
