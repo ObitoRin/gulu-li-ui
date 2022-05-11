@@ -1,18 +1,30 @@
 <template>
   <div class="gulu-tabs">
     <div class="gulu-tabs-nav">
-      <div class="gulu-tabs-nav-item" v-for="(t, index) in titles" :key="index">
+      <div
+        class="gulu-tabs-nav-item"
+        :class="{ selected: t === selected }"
+        v-for="(t, index) in titles"
+        :key="index"
+        @click="select(t)"
+      >
         {{ t }}
       </div>
     </div>
     <div class="gulu-tabs-content">
-      <component v-for="(c, index) in defaults" :key="index" :is="c" />
+      <component :is="current" :key="current" />
     </div>
   </div>
 </template>
 <script lang="ts">
 import Tab from './Tab.vue';
+import { computed } from 'vue';
 export default {
+  props: {
+    selected: {
+      type: String
+    }
+  },
   setup(props, context) {
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
@@ -21,7 +33,16 @@ export default {
       }
     });
     const titles = defaults.map((tag) => tag.props.title);
-    return { defaults, titles };
+
+    const select = (title: string) => {
+      context.emit('update:selected', title);
+    };
+    const current = computed(() => {
+      return defaults.filter((tag) => {
+        return tag.props.title === props.selected;
+      })[0];
+    });
+    return { defaults, titles, select, current };
   }
 };
 </script>
