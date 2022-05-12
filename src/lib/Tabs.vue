@@ -1,16 +1,21 @@
 <template>
   <div class="gulu-tabs">
-    <div class="gulu-tabs-nav">
+    <div class="gulu-tabs-nav" ref="container">
       <div
         class="gulu-tabs-nav-item"
         :class="{ selected: t === selected }"
         v-for="(t, index) in titles"
         :key="index"
+        :ref="
+          (el) => {
+            if (el) navItems[index] = el;
+          }
+        "
         @click="select(t)"
       >
         {{ t }}
       </div>
-      <div class="gulu-tabs-nav-indicator"></div>
+      <div class="gulu-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="gulu-tabs-content">
       <component
@@ -25,7 +30,7 @@
 </template>
 <script lang="ts">
 import Tab from './Tab.vue';
-import { computed } from 'vue';
+import { computed, ref, onMounted, onUpdated } from 'vue';
 export default {
   props: {
     selected: {
@@ -33,6 +38,27 @@ export default {
     }
   },
   setup(props, context) {
+    const navItems = ref<HTMLDivElement[]>([]); // 导航
+    const indicator = ref<HTMLDivElement>(null); //
+    const container = ref<HTMLDivElement>(null); // 导航容器 用于计算left
+
+    const x = () => {
+      const navs = navItems.value;
+      const currentNav = navs.filter((div) =>
+        div.classList.contains('selected')
+      )[0];
+      // 获取元素大小、相对窗口的位置
+      const { width, left: navLeft } = currentNav.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+
+      const { left: containerLeft } = container.value.getBoundingClientRect();
+      const left = navLeft - containerLeft;
+      indicator.value.style.left = left + 'px';
+    };
+
+    onMounted(x);
+    onUpdated(x);
+
     const defaults = context.slots.default();
     defaults.forEach((tag) => {
       if (tag.type !== Tab) {
@@ -49,7 +75,16 @@ export default {
         return tag.props.title === props.selected;
       })[0];
     });
-    return { defaults, titles, select, current };
+
+    return {
+      defaults,
+      titles,
+      select,
+      current,
+      navItems,
+      indicator,
+      container
+    };
   }
 };
 </script>
@@ -84,6 +119,7 @@ $border-color: #d9d9d9;
       left: 0;
       bottom: -1px;
       width: 50px;
+      transition: all 250ms;
     }
   }
   &-content {
