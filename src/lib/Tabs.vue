@@ -8,7 +8,7 @@
         :key="index"
         :ref="
           (el) => {
-            if (el) navItems[index] = el;
+            if (t === selected) selectedItem = el;
           }
         "
         @click="select(t)"
@@ -38,17 +38,14 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([]); // 导航
-    const indicator = ref<HTMLDivElement>(null); //
+    const selectedItem = ref<HTMLDivElement>(null); // 当前选中的导航
+    const indicator = ref<HTMLDivElement>(null);
     const container = ref<HTMLDivElement>(null); // 导航容器 用于计算left
 
     const x = () => {
-      const navs = navItems.value;
-      const currentNav = navs.filter((div) =>
-        div.classList.contains('selected')
-      )[0];
       // 获取元素大小、相对窗口的位置
-      const { width, left: navLeft } = currentNav.getBoundingClientRect();
+      const { width, left: navLeft } =
+        selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
 
       const { left: containerLeft } = container.value.getBoundingClientRect();
@@ -81,7 +78,7 @@ export default {
       titles,
       select,
       current,
-      navItems,
+      selectedItem,
       indicator,
       container
     };
