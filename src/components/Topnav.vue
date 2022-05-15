@@ -55,7 +55,6 @@ $color: #007974;
     max-width: 6em;
     margin-right: auto;
     text-decoration: none;
-    border: none;
     > svg {
       width: 32px;
       height: 32px;
