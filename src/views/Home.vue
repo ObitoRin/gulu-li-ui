@@ -39,6 +39,7 @@ $color: #007974;
     rgba(198, 221, 197, 1) 0%,
     rgba(209, 239, 254, 1) 100%
   );
+  clip-path: ellipse(80% 60% at 50% 40%);
 }
 
 .features {
