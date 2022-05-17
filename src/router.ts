@@ -1,3 +1,4 @@
+import { h } from 'vue';
 import { createWebHashHistory, createRouter } from 'vue-router';
 // createMemoryHistory 内存型路由 、createWebHashHistory Hash型路由、createWebHistory History型路由
 import Home from './views/Home.vue';
@@ -7,11 +8,12 @@ import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
 import DocDemo from './components/DocDemo.vue';
-import Intro from './views/Intro.vue';
-import GetStarted from './views/GetStarted.vue';
-import Install from './views/Install.vue';
+import MarkDown from './components/MarkDown.vue';
 // 路由模式
 const history = createWebHashHistory();
+
+const md = (filename) =>
+  h(MarkDown, { path: `../markdown/${filename}.md`, key: filename });
 
 // 配置路由 (根据path展示对应的组件)
 const routes = [
@@ -21,9 +23,18 @@ const routes = [
     component: Doc,
     children: [
       { path: '/', component: DocDemo },
-      { path: 'intro', component: Intro },
-      { path: 'get-started', component: GetStarted },
-      { path: 'install', component: Install },
+      {
+        path: 'intro',
+        component: md('intro')
+      },
+      {
+        path: 'get-started',
+        component: md('get-started')
+      },
+      {
+        path: 'install',
+        component: md('install')
+      },
       { path: 'switch', component: SwitchDemo },
       { path: 'button', component: ButtonDemo },
       { path: 'dialog', component: DialogDemo },
