@@ -1,16 +1,10 @@
 <template>
-  <article class="markdown-body" v-html="md"></article>
+  <MarkDown path="../markdown/install.md" />
 </template>
+
 <script>
-import md from '../markdown/install.md';
+import MarkDown from '../components/MarkDown.vue';
 export default {
-  data() {
-    return {
-      md
-    };
-  },
-  created() {
-    console.log('md', md);
-  }
+  components: { MarkDown }
 };
 </script>
