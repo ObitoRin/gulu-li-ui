@@ -1,20 +1,14 @@
 <template>
-  <h2>示例1</h2>
-  <Tabs v-model:selected="tab">
-    <Tab title="Tab1">内容1</Tab>
-    <Tab title="Tab2 ">内容2</Tab>
-  </Tabs>
+  <Demo :component="Tabs1Demo" />
 </template>
+
 <script lang="ts">
-import Tabs from '../lib/Tabs.vue';
-import Tab from '../lib/Tab.vue';
-import { ref } from 'vue';
+import Demo from './Demo.vue';
+import Tabs1Demo from './Tabs1.demo.vue';
 export default {
-  components: { Tabs, Tab },
+  components: { Demo },
   setup() {
-    const tab = ref('Tab1');
-    return { tab };
+    return { Tabs1Demo };
   }
 };
 </script>
-<style lang=""></style>
