@@ -22,7 +22,7 @@ const routes = [
     path: '/doc',
     component: Doc,
     children: [
-      { path: '/', component: DocDemo },
+      { path: '', redirect: '/doc/intro' },
       {
         path: 'intro',
         component: md('intro')
