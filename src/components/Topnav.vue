@@ -3,7 +3,7 @@
     <div class="topnav">
       <router-link to="/" class="logo">
         <svg class="icon">
-          <use xlink:href="#icon-apple"></use>
+          <use xlink:href="#icon-leaf"></use>
         </svg>
       </router-link>
       <ul class="menu">
