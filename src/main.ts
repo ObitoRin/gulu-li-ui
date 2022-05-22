@@ -4,6 +4,7 @@ import { createApp } from 'vue';
 import App from './App.vue';
 import { router } from './router';
 import 'github-markdown-css';
+import './lib/svg.js';
 import MarkDown from './components/MarkDown.vue';
 import Switch from './lib/Switch.vue';
 import Button from './lib/Button.vue';
