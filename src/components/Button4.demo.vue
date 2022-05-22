@@ -4,17 +4,9 @@
 
 <template>
   <div>
-    <Button disabled>禁用按钮</Button>
-    <Button disabled theme="link">禁用链接按钮</Button>
-    <Button disabled theme="text">禁用文字按钮</Button>
+    <li-button disabled>禁用按钮</li-button>
+    <li-button disabled theme="link">禁用链接按钮</li-button>
+    <li-button disabled theme="text">禁用文字按钮</li-button>
   </div>
 </template>
 
-<script lang="ts">
-import Button from '../lib/Button.vue';
-export default {
-  components: {
-    Button
-  }
-};
-</script>

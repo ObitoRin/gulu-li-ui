@@ -5,8 +5,18 @@ import App from './App.vue';
 import { router } from './router';
 import 'github-markdown-css';
 import MarkDown from './components/MarkDown.vue';
+import Switch from './lib/Switch.vue';
+import Button from './lib/Button.vue';
+import Dialog from './lib/Dialog.vue';
+import Tabs from './lib/Tabs.vue';
+import Tab from './lib/Tab.vue';
 
 const app = createApp(App);
 app.use(router);
 app.component('MarkDown', MarkDown);
+app.component('li-switch', Switch);
+app.component('li-button', Button);
+app.component('li-dialog', Dialog);
+app.component('li-tabs', Tabs);
+app.component('li-tab', Tab);
 app.mount('#app');

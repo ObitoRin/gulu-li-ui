@@ -5,28 +5,19 @@
 <template>
   <div>
     <div>
-      <Button size="big">大按钮</Button>
-      <Button>普通</Button>
-      <Button size="small">小按钮</Button>
+      <li-button size="big">大按钮</li-button>
+      <li-button>普通</li-button>
+      <li-button size="small">小按钮</li-button>
     </div>
     <div>
-      <Button size="big" theme="link">大按钮</Button>
-      <Button theme="link">普通</Button>
-      <Button size="small" theme="link">小按钮</Button>
+      <li-button size="big" theme="link">大按钮</li-button>
+      <li-button theme="link">普通</li-button>
+      <li-button size="small" theme="link">小按钮</li-button>
     </div>
     <div>
-      <Button size="big" theme="text">大按钮</Button>
-      <Button theme="text">普通</Button>
-      <Button size="small" theme="text">小按钮</Button>
+      <li-button size="big" theme="text">大按钮</li-button>
+      <li-button theme="text">普通</li-button>
+      <li-button size="small" theme="text">小按钮</li-button>
     </div>
   </div>
 </template>
-
-<script lang="ts">
-import Button from '../lib/Button.vue';
-export default {
-  components: {
-    Button
-  }
-};
-</script>

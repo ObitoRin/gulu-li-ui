@@ -3,18 +3,8 @@
 </demo>
 <template>
   <div>
-    <Button>你好</Button>
-    <Button theme="link">你好</Button>
-    <Button theme="text">你好</Button>
+    <li-button>你好</li-button>
+    <li-button theme="link">你好</li-button>
+    <li-button theme="text">你好</li-button>
   </div>
 </template>
-
-<script lang="ts">
-import Button from '../lib/Button.vue';
-
-export default {
-  components: {
-    Button
-  }
-};
-</script>
