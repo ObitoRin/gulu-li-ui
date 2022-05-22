@@ -8,11 +8,14 @@ import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
 import MarkDown from './components/MarkDown.vue';
+import intro from './markdown/intro.md';
+import getStarted from './markdown/get-started.md';
+import install from './markdown/install.md';
+
 // 路由模式
 const history = createWebHashHistory();
 
-const md = (filename) =>
-  h(MarkDown, { path: `../markdown/${filename}.md`, key: filename });
+const md = (string) => h(MarkDown, { content: string, key: string });
 
 // 配置路由 (根据path展示对应的组件)
 const routes = [
@@ -24,15 +27,15 @@ const routes = [
       { path: '', redirect: '/doc/intro' },
       {
         path: 'intro',
-        component: md('intro')
+        component: md(intro)
       },
       {
         path: 'get-started',
-        component: md('get-started')
+        component: md(getStarted)
       },
       {
         path: 'install',
-        component: md('install')
+        component: md(install)
       },
       { path: 'switch', component: SwitchDemo },
       { path: 'button', component: ButtonDemo },
