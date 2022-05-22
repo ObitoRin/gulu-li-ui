@@ -7,7 +7,6 @@ import SwitchDemo from './components/SwitchDemo.vue';
 import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
-import DocDemo from './components/DocDemo.vue';
 import MarkDown from './components/MarkDown.vue';
 // 路由模式
 const history = createWebHashHistory();
