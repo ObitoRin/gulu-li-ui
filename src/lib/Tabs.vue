@@ -39,16 +39,20 @@ export default {
     onMounted(() => {
       // watchEffect 在第一次渲染和依赖值更新时执行
       // 立即执行传入的一个函数，同时响应式追踪其依赖，并在其依赖变更时重新运行该函数。
-      watchEffect(() => {
-        // element.getBoundingClientRect 获取元素大小、相对窗口的位置
-        const { width, left: navLeft } =
-          selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + 'px';
+      watchEffect(
+        () => {
+          // element.getBoundingClientRect 获取元素大小、相对窗口的位置
+          const { width, left: navLeft } =
+            selectedItem.value.getBoundingClientRect();
+          indicator.value.style.width = width + 'px';
 
-        const { left: containerLeft } = container.value.getBoundingClientRect();
-        const left = navLeft - containerLeft;
-        indicator.value.style.left = left + 'px';
-      });
+          const { left: containerLeft } =
+            container.value.getBoundingClientRect();
+          const left = navLeft - containerLeft;
+          indicator.value.style.left = left + 'px';
+        },
+        { flush: 'post' }
+      );
     });
 
     const defaults = context.slots.default();
