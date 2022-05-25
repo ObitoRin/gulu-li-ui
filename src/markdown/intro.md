@@ -1,6 +1,6 @@
 # 介绍
 
-LI UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
+ObitoRin UI 是一款基于 Vue 3 和 TypeScript 的 UI 组件库。
 
 这款组件库其实是我为了学习 Vue 3 而写的，包括你现在看到的这个官网也是我开发的。
 

@@ -3,13 +3,13 @@
 打开终端运行下列命令：
 
 ```
-npm install guli-li-ui
+npm install obito-rin-ui
 ```
 
 或
 
 ```
-yarn add guli-li-ui
+yarn add obito-rin-ui
 ```
 
 下一节：[开始使用](#/doc/get-started)

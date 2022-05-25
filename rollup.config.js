@@ -10,8 +10,8 @@ export default {
     globals: {
       vue: 'Vue'
     },
-    name: 'gulu-li-ui',
-    file: 'dist/lib/gulu-li-ui.js',
+    name: 'Obito-Rin-UI',
+    file: 'dist/lib/Obito-Rin-UI.js',
     format: 'umd',
     plugins: [terser()]
   },
