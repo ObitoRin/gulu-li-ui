@@ -5,7 +5,7 @@
 <template>
   <div>
     <li-button @click="toggle">点击打开 Dialog</li-button>
-    <li-dialog title="标题" v-model:visible="visible" :ok="ok" :cancel="cancel">
+    <li-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
       <template v-slot:title>
         <strong>提示</strong>
       </template>
