@@ -12,3 +12,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.markdown-body a {
+  color: rgb(157, 191, 115) !important;
+}
+</style>

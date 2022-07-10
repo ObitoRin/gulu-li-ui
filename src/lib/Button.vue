@@ -84,8 +84,8 @@ $grey: #909399;
   }
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: $blue;
+    color: $green;
+    border-color: $green;
   }
   &:focus {
     outline: none;
@@ -97,10 +97,10 @@ $grey: #909399;
   &.gulu-theme-link {
     border-color: transparent;
     box-shadow: none;
-    color: $blue;
+    color: $green;
     &:hover,
     &:focus {
-      color: lighten($blue, 10%);
+      color: lighten($green, 10%);
     }
   }
   &.gulu-theme-text {
@@ -125,10 +125,10 @@ $grey: #909399;
   }
 
   &.gulu-level-primary {
-    @include level-color($blue);
+    @include level-color($green);
   }
   &.gulu-level-success {
-    @include level-color($green);
+    @include level-color($blue);
   }
   &.gulu-level-warning {
     @include level-color($yellow);
@@ -158,7 +158,7 @@ $grey: #909399;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $blue $blue $blue transparent;
+    border-color: $green $green $green transparent;
     border-style: solid;
     border-width: 2px;
     animation: gulu-spin 1s infinite linear;

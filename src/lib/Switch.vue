@@ -34,6 +34,7 @@ $h2: $h - 4px;
   background: #bfbfbf;
   border-radius: $h / 2;
   position: relative;
+  cursor: pointer;
   span {
     position: absolute;
     top: 2px;
@@ -54,7 +55,7 @@ $h2: $h - 4px;
   }
 
   &.gulu-checked {
-    background: #1890ff;
+    background: #9dbf73;
 
     > span {
       left: calc(100% - #{$h2} - 2px);
