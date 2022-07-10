@@ -6,7 +6,6 @@
   <div>
     <li-button @click="toggle">点击打开 Dialog</li-button>
     <li-dialog
-      title="标题"
       v-model:visible="visible"
       :onClickOverlay="false"
       :ok="ok"
