@@ -1,6 +1,6 @@
 <template>
-  <button class="gulu-button" :class="classes" :disabled="disabled">
-    <span v-if="loading" class="gulu-loadingIndicator"></span>
+  <button class="li-button" :class="classes" :disabled="disabled">
+    <span v-if="loading" class="li-loadingIndicator"></span>
     <slot />
   </button>
 </template>
@@ -33,9 +33,9 @@ export default {
     const { theme, size, level } = props;
     const classes = computed(() => {
       return {
-        [`gulu-theme-${theme}`]: theme,
-        [`gulu-size-${size}`]: size,
-        [`gulu-level-${level}`]: level
+        [`li-theme-${theme}`]: theme,
+        [`li-size-${size}`]: size,
+        [`li-level-${level}`]: level
       };
     });
     return { classes };
@@ -64,7 +64,7 @@ $grey: #909399;
   }
 }
 
-.gulu-button {
+.li-button {
   box-sizing: border-box;
   height: $h;
   padding: 0 12px;
@@ -94,7 +94,7 @@ $grey: #909399;
     border: 0;
   }
 
-  &.gulu-theme-link {
+  &.li-theme-link {
     border-color: transparent;
     box-shadow: none;
     color: $green;
@@ -103,7 +103,7 @@ $grey: #909399;
       color: lighten($green, 10%);
     }
   }
-  &.gulu-theme-text {
+  &.li-theme-text {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -113,30 +113,30 @@ $grey: #909399;
     }
   }
 
-  &.gulu-size-big {
+  &.li-size-big {
     font-size: 24px;
     height: 48px;
     padding: 0 16px;
   }
-  &.gulu-size-small {
+  &.li-size-small {
     font-size: 12px;
     height: 20px;
     padding: 0 4px;
   }
 
-  &.gulu-level-primary {
+  &.li-level-primary {
     @include level-color($green);
   }
-  &.gulu-level-success {
+  &.li-level-success {
     @include level-color($blue);
   }
-  &.gulu-level-warning {
+  &.li-level-warning {
     @include level-color($yellow);
   }
-  &.gulu-level-danger {
+  &.li-level-danger {
     @include level-color($red);
   }
-  &.gulu-theme-button {
+  &.li-theme-button {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -145,14 +145,14 @@ $grey: #909399;
       }
     }
   }
-  &.gulu-theme-link,
-  &.gulu-theme-text {
+  &.li-theme-link,
+  &.li-theme-text {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
     }
   }
-  > .gulu-loadingIndicator {
+  > .li-loadingIndicator {
     width: 14px;
     height: 14px;
     display: inline-block;
@@ -161,9 +161,9 @@ $grey: #909399;
     border-color: $green $green $green transparent;
     border-style: solid;
     border-width: 2px;
-    animation: gulu-spin 1s infinite linear;
+    animation: li-spin 1s infinite linear;
   }
-  @keyframes gulu-spin {
+  @keyframes li-spin {
     0% {
       transform: rotate(0deg);
     }
