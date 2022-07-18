@@ -12,7 +12,6 @@ import Intro from './views/Intro.vue';
 // import intro from './markdown/intro.md';
 // import getStarted from './markdown/get-started.md';
 // import install from './markdown/install.md';
-console.log(Intro);
 
 // 路由模式
 const history = createWebHashHistory();

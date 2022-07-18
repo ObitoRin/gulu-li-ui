@@ -1,6 +1,14 @@
 <template>
   <div>
-    <div class="topnav">
+    <div
+      class="topnav"
+      :style="{
+        background: $route.path.includes('doc') ? 'white' : 'unset',
+        boxShadow: $route.path.includes('doc')
+          ? 'rgb(46 46 46 / 10%) 0px 2px 2px'
+          : 'unset'
+      }"
+    >
       <router-link to="/" class="logo">
         <svg class="icon">
           <use xlink:href="#icon-leaf"></use>
@@ -53,7 +61,6 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
-  background: white;
   box-shadow: rgb(46 46 46 / 10%) 0px 2px 2px;
   > .logo {
     max-width: 6em;
