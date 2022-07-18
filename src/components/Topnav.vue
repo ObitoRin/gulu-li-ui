@@ -53,6 +53,8 @@ $color: #007974;
   z-index: 20;
   justify-content: center;
   align-items: center;
+  background: white;
+  box-shadow: rgb(46 46 46 / 10%) 0px 2px 2px;
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -78,7 +80,6 @@ $color: #007974;
     left: 16px;
     top: 50%;
     transform: translateY(-50%);
-    background: fade-out(black, 0.9);
     border-radius: 4px;
     cursor: pointer;
   }

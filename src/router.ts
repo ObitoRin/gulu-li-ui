@@ -8,9 +8,11 @@ import ButtonDemo from './components/ButtonDemo.vue';
 import DialogDemo from './components/DialogDemo.vue';
 import TabsDemo from './components/TabsDemo.vue';
 import MarkDown from './components/MarkDown.vue';
-import intro from './markdown/intro.md';
-import getStarted from './markdown/get-started.md';
-import install from './markdown/install.md';
+import Intro from './views/Intro.vue';
+// import intro from './markdown/intro.md';
+// import getStarted from './markdown/get-started.md';
+// import install from './markdown/install.md';
+console.log(Intro);
 
 // 路由模式
 const history = createWebHashHistory();
@@ -27,16 +29,20 @@ const routes = [
       { path: '', redirect: '/doc/intro' },
       {
         path: 'intro',
-        component: md(intro)
+        component: Intro
       },
-      {
-        path: 'get-started',
-        component: md(getStarted)
-      },
-      {
-        path: 'install',
-        component: md(install)
-      },
+      // {
+      //   path: 'intro',
+      //   component: md(intro)
+      // },
+      // {
+      //   path: 'get-started',
+      //   component: md(getStarted)
+      // },
+      // {
+      //   path: 'install',
+      //   component: md(install)
+      // },
       { path: 'switch', component: SwitchDemo },
       { path: 'button', component: ButtonDemo },
       { path: 'dialog', component: DialogDemo },
