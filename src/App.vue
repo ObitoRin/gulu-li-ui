@@ -1,23 +1,17 @@
 <template>
-  <!-- 在App.vue中展示路由对应的组件 -->
   <router-view />
 </template>
 
-<script lang="ts">
-import { provide, ref } from 'vue';
-import { router } from './router';
+<script lang="ts" setup>
+import { provide, ref } from "vue";
+import { router } from "./router";
 
-export default {
-  name: 'App',
-  setup() {
-    const width = document.documentElement.clientWidth;
-    const menuVisible = ref(width <= 500 ? false : true);
-    provide('menuVisible', menuVisible); // set
-    router.afterEach(() => {
-      if (width <= 500) {
-        menuVisible.value = false;
-      }
-    });
+const width = document.documentElement.clientWidth;
+const menuVisible = ref(width <= 500 ? false : true);
+provide("menuVisible", menuVisible); // set
+router.afterEach(() => {
+  if (width <= 500) {
+    menuVisible.value = false;
   }
-};
+});
 </script>
