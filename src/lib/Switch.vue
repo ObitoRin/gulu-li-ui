@@ -9,18 +9,12 @@
   </button>
 </template>
 
-<script lang="ts">
-export default {
-  props: {
-    value: Boolean,
-    disabled: Boolean
-  },
-  setup(props, context) {
-    const toggle = () => {
-      context.emit('update:value', !props.value);
-    };
-    return { toggle };
-  }
+<script lang="ts" setup="props, context">
+import { SetupContext } from "vue";
+declare const props: { value: boolean };
+declare const context: SetupContext;
+export const toggle = () => {
+  context.emit("update:value", !props.value);
 };
 </script>
 

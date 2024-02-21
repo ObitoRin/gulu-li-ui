@@ -20,45 +20,31 @@
     </Teleport>
   </template>
 </template>
-<script lang="ts">
-import Button from './Button.vue';
-export default {
-  components: { Button },
-  props: {
-    visible: {
-      type: Boolean,
-      default: false
-    },
-    onClickOverlay: {
-      type: Boolean,
-      default: true
-    },
-    ok: {
-      type: Function
-    },
-    cancel: {
-      type: Function
-    }
-  },
-  setup(props, context) {
-    const close = () => {
-      context.emit('update:visible', false);
-    };
-    const onClickOverlay = () => {
-      if (props.onClickOverlay) {
-        close();
-      }
-    };
-    const ok = () => {
-      props.ok && props.ok();
-      close();
-    };
-    const cancel = () => {
-      props.cancel && props.cancel();
-      close();
-    };
-    return { close, onClickOverlay, ok, cancel };
+<script lang="ts" setup="props, context">
+import { SetupContext } from "vue";
+import Button from "./Button.vue";
+declare const props: {
+  visible: boolean;
+  onClickOverlay: boolean;
+  ok: () => boolean;
+  cancel: () => void;
+};
+declare const context: SetupContext;
+export const close = () => {
+  context.emit("update:visible", false);
+};
+export const onClickOverlay = () => {
+  if (props.onClickOverlay) {
+    close();
   }
+};
+export const ok = () => {
+  props.ok && props.ok();
+  close();
+};
+export const cancel = () => {
+  props.cancel && props.cancel();
+  close();
 };
 </script>
 <style lang="scss">
@@ -110,7 +96,7 @@ $border-color: #d9d9d9;
     cursor: pointer;
     &::before,
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       height: 1px;
       background: black;
