@@ -4,8 +4,8 @@
 
 <template>
   <div>
-    <li-button @click="toggle">点击打开 Dialog</li-button>
-    <li-dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
+    <Button @click="toggle">点击打开 Dialog</Button>
+    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
       <template v-slot:title>
         <strong>提示</strong>
       </template>
@@ -13,13 +13,18 @@
         <div>hi</div>
         <div>这是一段信息</div>
       </template>
-    </li-dialog>
+    </Dialog>
   </div>
 </template>
 
 <script lang="ts">
-import { ref } from 'vue';
+import { ref } from "vue";
+import { Button, Dialog } from "../lib/index";
 export default {
+  components: {
+    Dialog,
+    Button,
+  },
   setup() {
     const visible = ref(false);
     const toggle = () => {
@@ -29,6 +34,6 @@ export default {
     const cancel = () => {};
 
     return { visible, toggle, ok, cancel };
-  }
+  },
 };
 </script>

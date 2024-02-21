@@ -4,16 +4,24 @@
 
 <template>
   <div>
-    <li-tabs v-model:selected="tab">
-      <li-tab title="Tab1">内容1</li-tab>
-      <li-tab title="Tab2 ">内容2</li-tab>
-    </li-tabs>
+    <Tabs v-model:selected="tab">
+      <Tab title="Tab1">Tab1</Tab>
+      <Tab title="Tab2 ">Tab2</Tab>
+    </Tabs>
   </div>
 </template>
 
 <script lang="ts">
 import { ref } from 'vue';
+import {
+  Tabs,
+  Tab
+} from "../lib/index";
 export default {
+  components: {
+    Tabs,
+    Tab
+  },
   setup() {
     const tab = ref('Tab1');
     return { tab };
