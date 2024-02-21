@@ -4,10 +4,10 @@
 
 <template>
   <div>
-    <Button @click="toggle">点击打开 Dialog</Button>
+    <Button @click="open">点击打开 Dialog</Button>
     <Dialog
       v-model:visible="visible"
-      :onClickOverlay="false"
+      :closeOnClickOverlay="false"
       :ok="ok"
       :cancel="cancel"
     >
@@ -32,13 +32,16 @@ export default {
   },
   setup() {
     const visible = ref(false);
-    const toggle = () => {
-      visible.value = !visible.value;
+    // const toggle = () => {
+    //   visible.value = !visible.value;
+    // };
+    const open = () => {
+      visible.value = true;
     };
     const ok = () => {};
     const cancel = () => {};
 
-    return { visible, toggle, ok, cancel };
+    return { visible, open, ok, cancel };
   }
 };
 </script>

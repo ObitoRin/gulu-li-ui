@@ -24,19 +24,17 @@
 </template>
 <script lang="ts" setup="props, context">
 import Tab from "./Tab.vue";
-import {
-  computed,
-  ref,
-  onMounted,
-  watchEffect,
-  SetupContext,
-  Component,
-} from "vue";
-declare const props: { selected: string };
-declare const context: SetupContext;
-export const selectedItem = ref<HTMLDivElement>(null); // 当前选中的导航
-export const indicator = ref<HTMLDivElement>(null);
-export const container = ref<HTMLDivElement>(null); // 导航容器 用于计算left
+import { computed, ref, onMounted, watchEffect, useSlots } from "vue";
+/** References: https://vitejs.dev/guide/features.html#typescript */
+import type { Component } from "vue";
+
+const props = defineProps<{ selected: string }>();
+const emit = defineEmits<{
+  (e: "update:selected", title: string): void;
+}>();
+const selectedItem = ref<HTMLDivElement>(null); // 当前选中的导航
+const indicator = ref<HTMLDivElement>(null);
+const container = ref<HTMLDivElement>(null); // 导航容器 用于计算left
 
 onMounted(() => {
   watchEffect(
@@ -53,21 +51,22 @@ onMounted(() => {
     { flush: "post" }
   );
 });
-export const defaults = context.slots.default();
+const slots = useSlots();
+const defaults = slots.default();
 defaults.forEach((tag) => {
   if ((tag.type as Component).name !== Tab.name) {
     throw new Error("Tabs 子标签必须是 Tab");
   }
 });
 
-export const currentContent = computed(() => {
+const currentContent = computed(() => {
   return defaults.find((tag) => tag.props.title === props.selected);
 });
 
-export const titles = defaults.map((tag) => tag.props.title);
+const titles = defaults.map((tag) => tag.props.title);
 
-export const select = (title: string) => {
-  context.emit("update:selected", title);
+const select = (title: string) => {
+  emit("update:selected", title);
 };
 </script>
 <style lang="scss">

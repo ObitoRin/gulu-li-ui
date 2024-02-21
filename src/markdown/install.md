@@ -2,13 +2,13 @@
 
 打开终端运行下列命令：
 
-```
+```bash
 npm install obito-rin-ui
 ```
 
 或
 
-```
+```bash
 yarn add obito-rin-ui
 ```
 

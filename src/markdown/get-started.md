@@ -4,7 +4,7 @@
 
 然后写入下面的代码
 
-```
+```javascript
 import {Button, Tabs, Switch, Dialog} from "obito-rin-ui"
 ```
 
@@ -14,7 +14,7 @@ import {Button, Tabs, Switch, Dialog} from "obito-rin-ui"
 
 代码示例：
 
-```
+````html
 <template>
   <div>
     <Button>按钮</Button>

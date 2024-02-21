@@ -5,7 +5,7 @@
 <template>
   <div>
     <Button @click="toggle">点击打开 Dialog</Button>
-    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel">
+    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel" :closeOnClickOverlay="true">
       <template v-slot:title>
         <strong>提示</strong>
       </template>

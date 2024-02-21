@@ -4,21 +4,23 @@
     :class="{ 'li-checked': value, 'li-disabled': disabled }"
     :disabled="disabled"
     @click="toggle"
-  >
+  >   
     <span></span>
   </button>
 </template>
 
 <script lang="ts" setup="props, context">
-import { SetupContext } from "vue";
-declare const props: { value: boolean };
-declare const context: SetupContext;
-export const toggle = () => {
-  context.emit("update:value", !props.value);
+const props = defineProps<{ value: boolean, disabled?: boolean }>();
+const emit = defineEmits<{
+  (e: "update:value", visible: boolean): void;
+}>();
+const toggle = () => {
+  emit("update:value", !props.value);
 };
 </script>
 
 <style lang="scss">
+@use "sass:math";
 $h: 22px;
 $h2: $h - 4px;
 .li-switch {
@@ -26,7 +28,7 @@ $h2: $h - 4px;
   width: $h * 2;
   border: none;
   background: #bfbfbf;
-  border-radius: $h / 2;
+  border-radius: math.div($h, 2);
   position: relative;
   cursor: pointer;
   span {
@@ -36,7 +38,7 @@ $h2: $h - 4px;
     height: $h2;
     width: $h2;
     background: white;
-    border-radius: $h2 / 2;
+    border-radius: math.div($h2, 2);
     transition: all 250ms;
   }
   &:focus {
