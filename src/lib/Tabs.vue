@@ -7,7 +7,7 @@
         v-for="(t, index) in titles"
         :key="index"
         :ref="
-          (el) => {
+          (el: HTMLDivElement) => {
             if (t === selected) selectedItem = el;
           }
         "
@@ -25,7 +25,6 @@
 <script lang="ts" setup="props, context">
 import Tab from "./Tab.vue";
 import { computed, ref, onMounted, watchEffect, useSlots } from "vue";
-/** References: https://vitejs.dev/guide/features.html#typescript */
 import type { Component } from "vue";
 
 const props = defineProps<{ selected: string }>();
