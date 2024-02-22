@@ -4,7 +4,7 @@
   <template>
   <div>
     <Button loading>加载中</Button>
-    <Button>加载完毕</Button>
+    <Button level="primary" loading>加载中</Button>
   </div>
 </template>
   

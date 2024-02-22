@@ -15,9 +15,9 @@
       <Button size="small" theme="link">小按钮</Button>
     </div>
     <div>
-      <Button size="big" theme="text">大按钮</Button>
-      <Button theme="text">普通</Button>
-      <Button size="small" theme="text">小按钮</Button>
+      <Button size="big" theme="plain">大按钮</Button>
+      <Button theme="plain">普通</Button>
+      <Button size="small" theme="plain">小按钮</Button>
     </div>
   </div>
 </template>

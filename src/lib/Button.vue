@@ -12,13 +12,13 @@
 <script lang="ts" setup="props">
 import { computed } from "vue";
 const props = defineProps<{
-  theme?: "button" | "text" | "link";
+  theme?: "button" | "plain" | "link";
   size?: "normal" | "big" | "small";
   level?: "normal" | "primary" | "success" | "warning" | "danger";
   disabled?: boolean;
   loading?: boolean;
 }>();
-const { theme, size, level } = props;
+const { theme, size, level, loading } = props;
 
 defineEmits<{
   (e: "click", event: MouseEvent): void;
@@ -28,6 +28,7 @@ const classes = computed(() => {
     [`li-theme-${theme}`]: theme,
     [`li-size-${size}`]: size,
     [`li-level-${level}`]: level,
+    [`li-loading`]: loading,
   };
 });
 </script>
@@ -56,9 +57,21 @@ $grey: #909399;
   background-color: transparent;
   border-color: transparent;
   color: $color;
+  box-shadow: none;
   &:hover,
   &:focus {
     color: lighten($color, 10%);
+  }
+}
+@mixin plain-level-color($color, $bg) {
+  border: 1px solid $color;
+  color: $color;
+  background-color: $bg;
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: $color;
+    transition: all 600ms;
   }
 }
 
@@ -101,7 +114,7 @@ $grey: #909399;
       color: lighten($green, 10%);
     }
   }
-  &.li-theme-text {
+  &.li-theme-plain {
     border-color: transparent;
     box-shadow: none;
     color: inherit;
@@ -155,7 +168,7 @@ $grey: #909399;
     }
   }
   &.li-theme-link,
-  &.li-theme-text {
+  &.li-theme-plain {
     &[disabled] {
       cursor: not-allowed;
       color: $grey;
@@ -176,6 +189,27 @@ $grey: #909399;
   &.li-theme-link.li-level-danger{
     @include link-level-color($red);
   }
+  &.li-theme-plain{
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    &:hover,
+    &:focus{
+      background-color: #fff;
+      border: 1px solid $green;
+    }
+  }
+  &.li-theme-plain.li-level-primary{
+    @include plain-level-color($green, #cee9ce);
+  }
+  &.li-theme-plain.li-level-success{
+    @include plain-level-color($blue, #ecf5ff);
+  }
+  &.li-theme-plain.li-level-warning{
+    @include plain-level-color($yellow, #fdf6ec);
+  }
+  &.li-theme-plain.li-level-danger{
+    @include plain-level-color($red, #fef0f0);
+  }
   > .li-loadingIndicator {
     width: 14px;
     height: 14px;
@@ -194,6 +228,13 @@ $grey: #909399;
     100% {
       transform: rotate(360deg);
     }
+  }
+}
+.li-loading{
+  cursor: initial;
+  pointer-events: none;
+  &.li-level-primary{
+    background: darken(#cee9ce, 5%);
   }
 }
 </style>
