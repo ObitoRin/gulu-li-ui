@@ -4,7 +4,7 @@
 
 <template>
   <div>
-    <Button @click="open">点击打开 Dialog</Button>
+    <Button @click="open">打开 Dialog</Button>
     <Dialog
       v-model:visible="visible"
       :closeOnClickOverlay="false"
@@ -32,9 +32,6 @@ export default {
   },
   setup() {
     const visible = ref(false);
-    // const toggle = () => {
-    //   visible.value = !visible.value;
-    // };
     const open = () => {
       visible.value = true;
     };

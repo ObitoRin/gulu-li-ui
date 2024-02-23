@@ -26,7 +26,7 @@ import Button from "./Button.vue";
 const props = defineProps<{
   visible?: boolean;
   closeOnClickOverlay?: boolean;
-  ok?: () => void;
+  ok?: () => boolean | void;
   cancel?: () => void;
 }>();
 
@@ -42,8 +42,9 @@ const onClickOverlay = () => {
   }
 };
 const onClickOk = () => {
-  props.ok?.()
-  close();
+  if (props.ok?.() !== false) {
+    close()
+  }
 };
 const onClickCancel = () => {
   props.cancel?.();
