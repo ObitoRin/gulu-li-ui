@@ -19,16 +19,19 @@
           <h2>组件列表</h2>
           <ol>
             <li>
-              <router-link to="/doc/switch">Switch 组件</router-link>
+              <router-link to="/doc/switch">Switch</router-link>
             </li>
             <li>
-              <router-link to="/doc/button">Button 组件</router-link>
+              <router-link to="/doc/button">Button</router-link>
             </li>
             <li>
-              <router-link to="/doc/dialog">Dialog 组件</router-link>
+              <router-link to="/doc/dialog">Dialog</router-link>
             </li>
             <li>
-              <router-link to="/doc/tabs">Tabs 组件</router-link>
+              <router-link to="/doc/tabs">Tabs</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/message">Message</router-link>
             </li>
             <li><span>持续更新...</span></li>
           </ol>
@@ -80,13 +83,14 @@ $aside-index: 10;
   }
   > main {
     flex-grow: 1;
-    padding: 16px;
+    padding: 16px 30px;
     background: white;
   }
 }
 aside {
   background-color: #f9f9f9;
-  width: 150px;
+  // width: 150px;
+  width: 170px;
   padding: 16px 0;
   position: fixed;
   top: 0;

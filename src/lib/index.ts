@@ -4,3 +4,5 @@ export { default as Tabs } from './Tabs.vue';
 export { default as Tab } from './Tab.vue';
 export { default as Dialog } from './Dialog.vue';
 export { openDialog as openDialog } from './openDialog';
+export { default as Message } from './Message.vue';
+export { message as message } from './message';
